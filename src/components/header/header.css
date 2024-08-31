@@ -1,0 +1,10 @@
+header {
+  background-color: rgb(22, 107, 186);
+  color: white;
+  height: 100vh;
+  padding: 5%;
+}
+main {
+  height: 80%;
+  background-color: rgb(9, 39, 137);
+}
