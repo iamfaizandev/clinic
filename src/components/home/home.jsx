@@ -1,3 +1,4 @@
+import { Footer } from "../footer/footer";
 import { Header } from "../header/header";
 import { Nav } from "../nav/nav";
 import "./home.css";
@@ -15,6 +16,7 @@ export function Home() {
           </h4>
         </main>
       </section>
+      <Footer />
     </div>
   );
 }

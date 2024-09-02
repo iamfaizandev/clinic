@@ -1,27 +1,61 @@
+import React, { useState } from "react";
+import "./nav.css"; // Assume your CSS is saved in Navbar.css
 import { NavLink } from "react-router-dom";
-import "./nav.css";
 
 export function Nav() {
+  const [menuActive, setMenuActive] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuActive(!menuActive);
+  };
+
   return (
-    <nav>
-      <div className="brand-div">
-        <h4 className="brand-logo">AB Dental</h4>
+    <nav className={`navbar  `}>
+      <NavLink className="brand" to="/">
+        Ab Dental
+      </NavLink>
+
+      <div
+        className={`burger ${menuActive ? "is-active" : ""}`}
+        onClick={toggleMenu}
+      >
+        <span className="burger-line"></span>
+        <span className="burger-line"></span>
+        <span className="burger-line"></span>
       </div>
-      <ul className="nav-menu">
+      <div className={`menu ${menuActive ? "is-active" : ""}`}>
+        <ul className="menu-inner">
+          <li>
+            <NavLink className="menu-item" to="/">
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="menu-item" to="/aboutus">
+              About
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="menu-item" to="/service">
+              Service
+            </NavLink>
+          </li>
+          <li>
+            <NavLink className="menu-item" to="/contact">
+              Contact
+            </NavLink>
+          </li>
+        </ul>
+      </div>
+      <div className="bookappoint ms-4">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <button className="btn btn-primary text-white">
+            <NavLink className="menu-item " to="/appointment">
+              Book Now
+            </NavLink>
+          </button>
         </li>
-        <li>
-          <NavLink to="/aboutus">About</NavLink>
-        </li>
-        <li>
-          <NavLink to="/bookappointment">Book Appointment</NavLink>
-        </li>
-        <li>
-          <NavLink to="/service">Service</NavLink>
-        </li>
-      </ul>
-      <div className="theme-mode">Dark / Light</div>
+      </div>
     </nav>
   );
 }

@@ -1,18 +1,219 @@
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  background-color: darkgreen;
-  color: aliceblue;
-}
-ul {
+/* Reset and global styles */
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
   list-style: none;
-  display: grid;
-  grid-template-columns: 3fr 3fr 3fr 3fr;
-  justify-content: space-between;
-  align-items: center;
+  list-style-type: none;
+  text-decoration: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-a {
+
+html {
+  font-size: 100%;
+  box-sizing: inherit;
+  scroll-behavior: smooth;
+  height: -webkit-fill-available;
+}
+
+a,
+button {
+  cursor: pointer;
+  user-select: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+.bookappoint a {
   color: white;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 4rem;
+  padding-left: 1%;
+  padding-right: 1%;
+  position: sticky;
+  top: 0;
+  background-color: white;
+}
+
+.brand {
+  font-family: inherit;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.25;
+  margin-right: auto;
+  letter-spacing: -1px;
+  text-transform: uppercase;
+  color: var(--color-blue-500);
+}
+
+.darkmode .brand {
+  color: var(--color-white-100);
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  color: var(--color-black-400);
+  background-color: var(--color-white-100);
+  box-shadow: var(--shadow-medium);
+  transition: all 0.4s ease-in-out;
+}
+
+.menu.is-active {
+  left: 0;
+}
+
+.menu-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1.25rem;
+  margin-top: 7rem;
+}
+
+.menu-link {
+  font-family: inherit;
+  font-size: 1rem; /* Default font size */
+  font-weight: 500;
+  line-height: 1.5;
+  color: inherit;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Media query for larger screens */
+@media only screen and (min-width: 48rem) {
+  .menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-left: auto;
+    background: none;
+    box-shadow: none;
+    transition: none;
+  }
+
+  .menu-inner {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2rem;
+    margin: 0 auto;
+  }
+
+  .menu-link {
+    text-transform: capitalize;
+  }
+}
+
+@media only screen and (max-width: 48rem) {
+  .menu-inner li {
+    margin-bottom: 17%;
+    font-size: 3rem; /* Adjust this value to your preferred font size for phone mode */
+  }
+}
+
+.burger {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  order: -1;
+  z-index: 12;
+  width: 1.6rem;
+  height: 1.15rem;
+  margin-right: 1.25rem;
+  margin-left: 3%;
+  border: none;
+  outline: none;
+  background: none;
+  visibility: visible;
+  transform: rotate(0deg);
+  transition: 0.35s ease;
+}
+
+.bookappoint {
+  margin-right: 5%;
+}
+
+@media only screen and (min-width: 48rem) {
+  .burger {
+    display: none;
+    visibility: hidden;
+  }
+  .bookappoint {
+    margin-right: 0%;
+  }
+}
+
+.burger-line {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border: none;
+  outline: none;
+  opacity: 1;
+  border-radius: 1rem;
+  transform: rotate(0deg);
+  background-color: var(--color-black-300);
+  transition: 0.25s ease-in-out;
+}
+
+.burger-line:nth-child(1) {
+  bottom: 17px;
+  background-color: #f7768d;
+  width: 120%;
+  height: 4px;
+}
+
+.burger-line:nth-child(2) {
+  top: 0.4rem;
+  width: 70%;
+  height: 4px;
+  background-color: rgb(56, 179, 56);
+}
+
+.burger-line:nth-child(3) {
+  top: 1rem;
+  background-color: #36aac9;
+  width: 120%;
+  height: 4px;
+}
+
+.burger.is-active .burger-line:nth-child(1) {
+  top: 0.5rem;
+  transform: rotate(135deg);
+  background-color: #f7768d;
+}
+
+.burger.is-active .burger-line:nth-child(2) {
+  opacity: 0;
+  visibility: none;
+}
+
+.burger.is-active .burger-line:nth-child(3) {
+  top: 0.5rem;
+  transform: rotate(-135deg);
 }

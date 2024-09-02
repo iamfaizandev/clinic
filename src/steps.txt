@@ -3,3 +3,6 @@
 3. slogan , catcy word 
 4. home page design
 5. add smoothness and scroll triger animation in home page
+
+
+##############################
