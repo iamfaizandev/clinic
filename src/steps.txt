@@ -1,8 +1,7 @@
 1. make nav responsive and great ui , hover animation , phone and tab size fit
 2. create banner , background , gif , buttons , 
-3. slogan , catcy word 
-4. home page design
-5. add smoothness and scroll triger animation in home page
+3. home page design
+4. add smoothness and scroll triger animation in home page
 
 
 ##############################
